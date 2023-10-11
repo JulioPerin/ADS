@@ -1,0 +1,41 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="planilha.css">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+  
+    <h1>Lista de Tarefas</h1>
+    <div class="task-container">
+        <input type="text" id="task-input" placeholder="Adicionar uma tarefa">
+        <button id="add-task">Adicionar</button>
+    </div>
+    <div class="columns-container">
+        <div class="column" id="todo-column">
+            <h2>A Fazer</h2>
+            <ul id="todo-list" class="task-list">
+                <!-- As tarefas a fazer serão adicionadas aqui -->
+            </ul>
+        </div>
+        <div class="column" id="doing-column">
+            <h2>Fazendo</h2>
+            <ul id="doing-list" class="task-list">
+                <!-- As tarefas em andamento serão adicionadas aqui -->
+            </ul>
+        </div>
+        <div class="column" id="done-column">
+            <h2>Concluído</h2>
+            <ul id="done-list" class="task-list">
+                <!-- As tarefas concluídas serão adicionadas aqui -->
+            </ul>
+        </div>
+    </div>
+    <script src="planilha.js"></script>
+</body>
+</html>

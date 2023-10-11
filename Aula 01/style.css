@@ -1,0 +1,222 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2c2d2e;
+}
+
+/* Estilos para o cabeçalho */
+header {
+    background-color: #2c2d2e;
+    color: #2c2d2e;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Estilo para os botões do menu*/
+.menu {
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .menu ul {
+    list-style: none;
+    display: flex;
+  }
+
+  .menu ul li {
+    margin-right: 15px;
+  }
+
+  .menu ul li a {
+    display: inline-block;
+    padding: 7px 20px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 18px;
+    background-color: #2c2d2e;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.5s ease;
+  }
+
+  .menu ul li a:hover {
+    background-color: #c8c7c7;
+    color: #333;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+
+.titulo-principal {
+    font-size: 28px;
+}
+
+/* Estilos para a seção principal */
+#banner {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.principal {
+    padding: 20px;
+    background-color: #2c2d2e;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color:#b5b5b6;
+}
+
+.titulo-secundario {
+    font-size: 24px;
+    color: #b5b5b6;
+}
+
+.titulo-terceiro {
+    font-size: 24px;
+    color: #b5b5b6;
+    padding: 20px;
+}
+
+/* Estilos para a seção de benefícios */
+.beneficios {
+    background-color: #2c2d2e;
+    padding: 20px;
+    text-align: left;
+}
+
+/* Estilos para links */
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2c2d2e;
+}
+
+/* Estilos para o cabeçalho */
+header {
+    background-color: #2c2d2e;
+    color: #2c2d2e;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo-principal {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.caixa {
+    padding: 20px;
+    background-color: #404143;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+  .beneficios {
+    display: flex;
+    align-items: center; /* Alinhar verticalmente o texto e a imagem */
+}
+
+.beneficios ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-right: 30px; /* Espaçamento entre a lista e a imagem */
+}
+
+.itens {
+    font-size: 20px;
+    padding-left: 300px;
+    margin: 10px; /* Reduz a margem dos itens */
+    position: relative;
+    color:#c8c7c7 /* Permite ajustar a posição dos marcadores */
+  }
+  
+  .itens::before {
+    content: "\2605"; /* Código para o caractere de bolinha (•) */
+    color: #ffffff; /* Cor da bolinha */
+    font-size: 20px;
+    position: absolute;
+    padding-left: 300px;
+    left: -20px; /* Ajusta a posição da bolinha em relação ao item */
+    top: 45%; /* Centraliza verticalmente a bolinha */
+    transform: translateY(-50%); /* Ajusta a posição vertical da bolinha */
+  }
+
+.imagemBeneficios {
+    max-width: 600px; /* Ajuste o tamanho conforme necessário */
+    border-radius: 20px;
+}
+
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.map-container {
+    background-color: #4f4f4f;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 70%;
+    max-width: 500px;
+    padding: 20px;
+    text-align: center;
+}
+
+
+.map-container iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-content p {
+    margin-right: 20px;
+}
+
+.footer-content img {
+    max-width: 50px;
+}

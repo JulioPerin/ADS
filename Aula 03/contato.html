@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Contato</title>
+    <link rel="stylesheet" href="contato.css">
+</head>
+
+<body>
+    <header>
+        <div class="caixa">
+            <h1><img src="logo.png" style="width: 150px;"></h1>
+            <nav class="menu">
+                <ul>
+                    <li><a href="C:\Users\JULIOVPERIN\Desktop\Web\Aula 01\index.html">Home</a></li>
+                    <li><a href="C:\Users\JULIOVPERIN\Desktop\Web\Aula 02\produtos.html">Produtos</a></li>
+                    <li><a href="C:\Users\JULIOVPERIN\Desktop\Web\Aula 03\contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <h2>Entre em Contato</h2>
+            <form class="contato-form" action="processar_contato.php" method="post">
+                <label for="nome">Nome completo:</label>
+                <input type="text" id="nome" name="nome" required><br>
+
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="telefone" required><br>
+
+                <label for="email">E-mail:</label>
+                <input type="text" id="email" name="email" required><br>
+
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" rows="4" required></textarea><br>
+
+                <fieldset>
+                    <legend>Tipo de Contato:</legend>
+                    <label><input type="radio" name="tipo_contato" value="email"> E-mail</label>
+                    <label><input type="radio" name="tipo_contato" value="telefone"> Telefone</label>
+                    <label><input type="radio" name="tipo_contato" value="whatsapp"> WhatsApp</label>
+                </fieldset>
+
+                <label for="retirada_pedido">Retirada de Pedido:</label>
+                <select id="retirada_pedido" name="retirada_pedido">
+                    <option value="manha">Manhã</option>
+                    <option value="tarde">Tarde</option>
+                    <option value="noite">Noite</option>
+                </select><br>
+
+                <label class="checkbox-label"><input type="checkbox" name="receber_emails"> Gostaria de Receber E-mails</label><br>
+
+                <input type="submit" value="Enviar" class="submit-button">
+            </form>
+        </div>
+    </main>
+</body>
+</html>

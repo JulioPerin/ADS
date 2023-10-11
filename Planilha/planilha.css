@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #333;
+}
+
+.task-container {
+    margin: 20px 0;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+#task-input {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+#add-task {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 7%;
+    cursor: pointer;
+}
+
+#add-task:hover {
+    background-color: #0056b3;
+}
+
+.columns-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.column {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.2s;
+}
+
+.column:hover {
+    transform: translateY(-5px);
+}
+
+.column h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-list li {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.delete-task {
+    width: 20px;
+    height: 20px;
+    cursor: pointer; /* para mostrar um cursor de mão quando passar o mouse sobre a imagem */
+    margin-left: 10px; /* espaço entre o texto da tarefa e a imagem */
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Impede a barra de rolagem horizontal */
+  }
+
+  .moving-image {
+    position: fixed;
+    bottom: 20px; /* Ajuste a posição vertical da imagem */
+    left: -200px; /* Posição inicial da imagem (fora da tela) */
+    width: 150px;
+    transition: left 0.5s ease-in-out; /* Adiciona uma transição suave */
+  }
+
+  @keyframes slide {
+    0% {
+      left: -200px;
+    }
+    100% {
+      left: calc(100% + 200px); /* Move a imagem para o lado direito */
+    }
+  }
+
+  /* Aplica a animação à classe .moving-image quando a página é rolada */
+  @media screen and (min-width: 768px) {
+    body.scroll .moving-image {
+      animation: slide 10s linear infinite; /* Ajuste a duração e o tempo conforme necessário */
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="moving-image">
+    <img src="banner.jpg" alt="Imagem em movimento">
+  </div>
+  
+  <script>
+    // Adiciona a classe "scroll" ao <body> quando a página é rolada
+    window.addEventListener('scroll', () => {
+      document.body.classList.add('scroll');
+    });
+  </script>
+</body>
+</html>
