@@ -2,6 +2,11 @@ package org.edu.unidep.rest;
 
 import org.edu.unidep.model.Produto;
 import org.edu.unidep.repository.ProdutoRepository;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
@@ -22,6 +27,7 @@ public class ProdutoResource {
     public List<Produto> listarProdutos() {
         return produtoRepository.listarProdutos();
     }
+
 
     @GET
     @Path("/{codigo}")
@@ -66,4 +72,5 @@ public class ProdutoResource {
         produtoRepository.excluirProdutoPorCodigo(codigo);
         return Response.ok().build();
     }
+
 }
