@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 export class Produto {
   codigoProduto: number = 0; 
@@ -15,6 +16,8 @@ export class Produto {
 })
 export class ProdutoComponent implements OnInit {
   produtos: Produto[] = [];
+  codigo: string = ''; 
+  produto: Produto | null = null; 
 
   constructor(private http: HttpClient) {}
 
@@ -29,6 +32,19 @@ export class ProdutoComponent implements OnInit {
       },
       (error: any) => {
         console.error(error);
+      }
+    );
+  }
+
+  buscarProdutoPorCodigo() {
+    const baseUrl = 'http://localhost:8080'; // Substitua pelo URL real da sua API
+    this.http.get(`${baseUrl}/produtos/${this.codigo}`).subscribe(
+      (response: any) => {
+        this.produto = response || null;
+      },
+      (error: any) => {
+        console.error(error);
+        this.produto = null;
       }
     );
   }

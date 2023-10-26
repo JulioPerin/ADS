@@ -1,0 +1,115 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+h1 {
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para a lista de produtos */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilos para os formulários */
+form {
+    margin-top: 20px;
+}
+
+input[type="text"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#produto-detalhes {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilos para mensagens de erro */
+
+
+
+  /* Estilos para o pop-up */
+.popup {
+    display: none;
+    position: fixed;
+    bottom: 20px; /* Distância do fundo da janela */
+    right: 20px; /* Distância da direita da janela */
+    background-color: #58f372;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 9999;
+}
+
+/* Estilos para o texto da mensagem no pop-up */
+#popup-message {
+    margin: 0;
+    font-weight: bold;
+}
+
+.popupErro {
+    display: none;
+    position: fixed;
+    bottom: 20px; /* Distância do fundo da janela */
+    right: 20px; /* Distância da direita da janela */
+    background-color: #ff6363;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 9999;
+}
+
+#popup-messageErro {
+    margin: 0;
+    font-weight: bold;
+}

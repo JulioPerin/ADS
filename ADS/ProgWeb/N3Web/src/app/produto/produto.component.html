@@ -1,10 +1,24 @@
-<h1>Listagem de produtos</h1>
+<h1 class="page-title">Listagem de produtos</h1>
 
-<ul>
-  <li *ngFor="let produto of produtos">
-    <p>Código: {{ produto.codigoProduto }}</p>
-    <p>Descrição: {{ produto.descricao }}</p>
-    <p>Unidade de medida: {{ produto.unidadeDeMedida }}</p>
-    <p>Vencimento: {{ produto.vencimento }}</p>
-  </li>
-</ul>
+<div class="container">
+  <ul class="produto-list">
+    <li class="product-item" *ngFor="let produto of produtos">
+      <p>Código: {{ produto.codigoProduto }}</p>
+      <p>Descrição: {{ produto.descricao }}</p>
+      <p>Unidade de medida: {{ produto.unidadeDeMedida }}</p>
+      <p>Vencimento: {{ produto.vencimento }}</p>
+    </li>
+  </ul>
+</div>
+
+<div class="container">
+    <h2>Buscar Produto por Código</h2>
+    <form (ngSubmit)="buscarProdutoPorCodigo()">
+      <input type="text" [(ngModel)]="codigo" name="codigo" placeholder="Código do Produto">
+      <button type="submit">Buscar</button>
+    </form>
+    <div id="produto-detalhes">
+      <p *ngIf="produto">Código: {{ produto.codigoProduto }}, Descrição: {{ produto.descricao }}, Unidade de Medida: {{ produto.unidadeDeMedida }}, Vencimento: {{ produto.vencimento }}</p>
+      <p *ngIf="produto === null">Produto não encontrado.</p>
+    </div>
+  </div>
