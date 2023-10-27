@@ -18,6 +18,10 @@ export class ProdutoComponent implements OnInit {
   produtos: Produto[] = [];
   codigo: string = ''; 
   produto: Produto | null = null; 
+  descricao: string = '';  // Adicione essa linha
+  unidadeDeMedida: string = '';  // Adicione essa linha
+  vencimento: string = ''; 
+  mensagemSucesso: string = '';
 
   constructor(private http: HttpClient) {}
 
@@ -37,7 +41,7 @@ export class ProdutoComponent implements OnInit {
   }
 
   buscarProdutoPorCodigo() {
-    const baseUrl = 'http://localhost:8080'; // Substitua pelo URL real da sua API
+    const baseUrl = 'http://localhost:8080'; 
     this.http.get(`${baseUrl}/produtos/${this.codigo}`).subscribe(
       (response: any) => {
         this.produto = response || null;
@@ -48,4 +52,32 @@ export class ProdutoComponent implements OnInit {
       }
     );
   }
-}
+
+  cadastrarProduto() {
+    const baseUrl = 'http://localhost:8080'; // Substitua pelo URL real da sua API
+    const data = {
+      descricao: this.descricao,
+      unidadeDeMedida: this.unidadeDeMedida,
+      vencimento: this.vencimento,
+    };
+  
+    this.http.post<Produto>(`${baseUrl}/produtos`, data).subscribe(
+      (response: Produto) => {
+        console.log(Produto)
+        this.descricao = '';
+        this.unidadeDeMedida = '';
+        this.vencimento = '';
+        console.log("Cadastro bem-sucedido");
+        this.listarProdutos();
+      },
+      (error: any) => {
+        console.error('Erro na solicitação:', error);
+      }
+    );
+  }
+  
+    
+ }
+  
+
+

@@ -23,6 +23,7 @@ h1 {
     margin-bottom: 20px;
 }
 
+
 /* Estilos para a lista de produtos */
 ul {
     list-style: none;
@@ -72,44 +73,3 @@ button:hover {
     border-radius: 5px;
 }
 
-/* Estilos para mensagens de erro */
-
-
-
-  /* Estilos para o pop-up */
-.popup {
-    display: none;
-    position: fixed;
-    bottom: 20px; /* Distância do fundo da janela */
-    right: 20px; /* Distância da direita da janela */
-    background-color: #58f372;
-    border: 1px solid #ccc;
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    z-index: 9999;
-}
-
-/* Estilos para o texto da mensagem no pop-up */
-#popup-message {
-    margin: 0;
-    font-weight: bold;
-}
-
-.popupErro {
-    display: none;
-    position: fixed;
-    bottom: 20px; /* Distância do fundo da janela */
-    right: 20px; /* Distância da direita da janela */
-    background-color: #ff6363;
-    border: 1px solid #ccc;
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    z-index: 9999;
-}
-
-#popup-messageErro {
-    margin: 0;
-    font-weight: bold;
-}
