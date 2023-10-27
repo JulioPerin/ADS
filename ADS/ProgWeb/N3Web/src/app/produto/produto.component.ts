@@ -77,6 +77,72 @@ export class ProdutoComponent implements OnInit {
     );
   }
 
+  atualizarProduto() {
+    const baseUrl = 'http://localhost:8080'; // Substitua pelo URL real da sua API
+    const codigo = this.codigo; // Use o código do produto do componente
+  
+    const data = {
+      descricao: this.descricao || null,
+      unidadeDeMedida: this.unidadeDeMedida || null,
+      vencimento: this.vencimento || null,
+    };
+  
+    this.http.put<Produto>(`${baseUrl}/produtos/${codigo}`, data).subscribe(
+      (response: Produto) => {
+        this.descricao = '';
+        this.unidadeDeMedida = '';
+        this.vencimento = '';
+        this.showPopup("Item atualizado com sucesso");
+        this.listarProdutos();
+      },
+      (error: any) => {
+        this.showPopupErro("Não foi possível atualizar o item");
+        console.error('Erro na solicitação:', error);
+      }
+    );
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   showPopup(message: string) {
     const popup = document.getElementById('popup');
     const popupMessage = document.getElementById('popup-message');

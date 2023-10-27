@@ -43,6 +43,44 @@
       <div class="mensagem-sucesso" *ngIf="mensagemSucesso">{{ mensagemSucesso }}</div>
     </form>
   </div>
+  
+  <div class="container">
+    <h2>Atualizar Produto</h2>
+    <form (ngSubmit)="atualizarProduto()">
+      <div class="form-group">
+        <label for="atualizarCodigo">Código do Produto a Atualizar:</label>
+        <input type="text" id="atualizarCodigo" name="atualizarCodigo" [(ngModel)]="codigo" required>
+      </div>
+      <div class="form-group">
+        <label for="atualizarDescricao">Nova Descrição:</label>
+        <input type="text" id="atualizarDescricao" name="atualizarDescricao" [(ngModel)]="descricao">
+      </div>
+      <div class="form-group">
+        <label for="atualizarUnidadeDeMedida">Nova Unidade de Medida:</label>
+        <input type="text" id="atualizarUnidadeDeMedida" name="atualizarUnidadeDeMedida" [(ngModel)]="unidadeDeMedida">
+      </div>
+      <div class="form-group">
+        <label for="atualizarVencimento">Novo Vencimento:</label>
+        <input type="date" id="atualizarVencimento" name="atualizarVencimento" [(ngModel)]="vencimento">
+      </div>
+      <button type="submit">Atualizar</button>
+    </form>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <div id="popup" class="popup">
     <p id="popup-message"></p>
