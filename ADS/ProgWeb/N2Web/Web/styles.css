@@ -6,6 +6,20 @@ body {
     padding: 0;
 }
 
+.js-title {
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.img-class {
+    margin-right: 10px;
+    width: 50px; /* Defina a largura desejada, por exemplo, 200 pixels */
+}
+
 .container {
     max-width: 800px;
     margin: 0 auto;
