@@ -7,6 +7,7 @@ export class Produto {
   descricao: string = '';
   unidadeDeMedida: number = 0;
   vencimento: string = '';
+
 }
 
 @Component({
@@ -22,6 +23,11 @@ export class ProdutoComponent implements OnInit {
   unidadeDeMedida: string = '';  // Adicione essa linha
   vencimento: string = ''; 
   mensagemSucesso: string = '';
+  codigoAtualizar: string = '';
+  descricaoAtualizar: string = '';
+  unidadeDeMedidaAtualizar: string = '';
+  vencimentoAtualizar: string = '';
+  codigoExcluir: string = '';
 
   constructor(private http: HttpClient) {}
 
@@ -79,19 +85,19 @@ export class ProdutoComponent implements OnInit {
 
   atualizarProduto() {
     const baseUrl = 'http://localhost:8080'; // Substitua pelo URL real da sua API
-    const codigo = this.codigo; // Use o código do produto do componente
+    const codigo = this.codigoAtualizar; // Use o código do produto do componente
   
     const data = {
-      descricao: this.descricao || null,
-      unidadeDeMedida: this.unidadeDeMedida || null,
-      vencimento: this.vencimento || null,
+      descricao: this.descricaoAtualizar || null,
+      unidadeDeMedida: this.unidadeDeMedidaAtualizar || null,
+      vencimento: this.vencimentoAtualizar || null,
     };
   
     this.http.put<Produto>(`${baseUrl}/produtos/${codigo}`, data).subscribe(
       (response: Produto) => {
-        this.descricao = '';
-        this.unidadeDeMedida = '';
-        this.vencimento = '';
+        this.descricaoAtualizar = '';
+        this.unidadeDeMedidaAtualizar = '';
+        this.vencimentoAtualizar= '';
         this.showPopup("Item atualizado com sucesso");
         this.listarProdutos();
       },
@@ -105,7 +111,7 @@ export class ProdutoComponent implements OnInit {
 
   excluirProduto() {
     const baseUrl = 'http://localhost:8080'; // Substitua pelo URL real da sua API
-    const codigo = this.codigo; // Use o código do produto do componente
+    const codigo = this.codigoExcluir; // Use o código do produto do componente
 
     fetch(`${baseUrl}/produtos/${codigo}`, {
       method: 'DELETE'

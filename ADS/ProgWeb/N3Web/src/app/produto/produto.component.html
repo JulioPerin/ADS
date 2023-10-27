@@ -1,4 +1,5 @@
 
+
 <div class="container">
     <h1>Listagem de produtos</h1>
   <ul class="produto-list">
@@ -48,19 +49,19 @@
     <form (ngSubmit)="atualizarProduto()">
       <div class="form-group">
         <label for="atualizarCodigo">Código do Produto a Atualizar:</label>
-        <input type="text" id="atualizarCodigo" name="atualizarCodigo" [(ngModel)]="codigo" required>
+        <input type="text" id="atualizarCodigo" name="atualizarCodigo" [(ngModel)]="codigoAtualizar" required>
       </div>
       <div class="form-group">
         <label for="atualizarDescricao">Nova Descrição:</label>
-        <input type="text" id="atualizarDescricao" name="atualizarDescricao" [(ngModel)]="descricao">
+        <input type="text" id="atualizarDescricao" name="atualizarDescricao" [(ngModel)]="descricaoAtualizar">
       </div>
       <div class="form-group">
         <label for="atualizarUnidadeDeMedida">Nova Unidade de Medida:</label>
-        <input type="text" id="atualizarUnidadeDeMedida" name="atualizarUnidadeDeMedida" [(ngModel)]="unidadeDeMedida">
+        <input type="text" id="atualizarUnidadeDeMedida" name="atualizarUnidadeDeMedida" [(ngModel)]="unidadeDeMedidaAtualizar">
       </div>
       <div class="form-group">
         <label for="atualizarVencimento">Novo Vencimento:</label>
-        <input type="date" id="atualizarVencimento" name="atualizarVencimento" [(ngModel)]="vencimento">
+        <input type="date" id="atualizarVencimento" name="atualizarVencimento" [(ngModel)]="vencimentoAtualizar">
       </div>
       <button type="submit">Atualizar</button>
     </form>
@@ -72,7 +73,7 @@
     <form (ngSubmit)="excluirProduto()">
       <div class="form-group">
         <label for="excluirCodigo">Código do Produto a Excluir:</label>
-        <input type="text" id="excluirCodigo" name="excluirCodigo" [(ngModel)]="codigo" required>
+        <input type="text" id="excluirCodigo" name="excluirCodigo" [(ngModel)]="codigoExcluir" required>
       </div>
       <button type="submit">Excluir</button>
     </form>
