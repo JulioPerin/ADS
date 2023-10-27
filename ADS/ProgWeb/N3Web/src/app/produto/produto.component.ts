@@ -56,27 +56,60 @@ export class ProdutoComponent implements OnInit {
   cadastrarProduto() {
     const baseUrl = 'http://localhost:8080'; // Substitua pelo URL real da sua API
     const data = {
-      descricao: this.descricao,
-      unidadeDeMedida: this.unidadeDeMedida,
-      vencimento: this.vencimento,
+      descricao: this.descricao || null,
+      unidadeDeMedida: this.unidadeDeMedida || null,
+      vencimento: this.vencimento || null,
     };
   
     this.http.post<Produto>(`${baseUrl}/produtos`, data).subscribe(
       (response: Produto) => {
-        console.log(Produto)
+        console.log(response)
         this.descricao = '';
         this.unidadeDeMedida = '';
         this.vencimento = '';
-        console.log("Cadastro bem-sucedido");
+        this.showPopup("Deu boa meu bruxo");
         this.listarProdutos();
       },
       (error: any) => {
+        this.showPopupErro("Não deu boa meu bruxo");
         console.error('Erro na solicitação:', error);
       }
     );
   }
+
+  showPopup(message: string) {
+    const popup = document.getElementById('popup');
+    const popupMessage = document.getElementById('popup-message');
+
+    if (popup && popupMessage) {
+      popupMessage.textContent = message;
+      popup.style.display = 'block';
+      setTimeout(() => { 
+        this.hidePopup();
+      }, 3000);
+    }
+  }
+
+  showPopupErro(message: string) {
+    const popupErro = document.getElementById('popupErro');
+    const popupMessageErro = document.getElementById('popup-messageErro');
+
+    if (popupErro && popupMessageErro) {
+      popupMessageErro.textContent = message;
+      popupErro.style.display = 'block';
+      setTimeout(() => { 
+        this.hidePopup();
+      }, 3000);
+    }
+  }
+
+  hidePopup() {
+    const popup = document.getElementById('popup');
+    if (popup) {
+      popup.style.display = 'none';
+    }
+  }
   
-    
  }
   
 
