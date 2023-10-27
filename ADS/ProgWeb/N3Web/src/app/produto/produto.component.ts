@@ -103,6 +103,23 @@ export class ProdutoComponent implements OnInit {
   }
 
 
+  excluirProduto() {
+    const baseUrl = 'http://localhost:8080'; // Substitua pelo URL real da sua API
+    const codigo = this.codigo; // Use o código do produto do componente
+
+    fetch(`${baseUrl}/produtos/${codigo}`, {
+      method: 'DELETE'
+    })
+      .then(response => {
+        if (response.status === 200) {
+          this.showPopup('Item excluído com sucesso.');
+         this.listarProdutos();
+        } else if (response.status === 404) {
+          this.showPopupErro('Item não encontrado');
+        }
+      });
+  }
+
 
 
 

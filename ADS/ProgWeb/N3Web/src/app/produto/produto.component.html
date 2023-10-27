@@ -1,5 +1,4 @@
 
-
 <div class="container">
     <h1>Listagem de produtos</h1>
   <ul class="produto-list">
@@ -68,18 +67,16 @@
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+  <div class="container">
+    <h2>Excluir Produto</h2>
+    <form (ngSubmit)="excluirProduto()">
+      <div class="form-group">
+        <label for="excluirCodigo">Código do Produto a Excluir:</label>
+        <input type="text" id="excluirCodigo" name="excluirCodigo" [(ngModel)]="codigo" required>
+      </div>
+      <button type="submit">Excluir</button>
+    </form>
+  </div>
 
 
   <div id="popup" class="popup">
