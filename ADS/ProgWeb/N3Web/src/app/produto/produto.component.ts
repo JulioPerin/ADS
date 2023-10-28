@@ -28,6 +28,12 @@ export class ProdutoComponent implements OnInit {
   unidadeDeMedidaAtualizar: string = '';
   vencimentoAtualizar: string = '';
   codigoExcluir: string = '';
+  buscaRealizada: boolean = false; 
+  item: any = {
+    user: {
+      picture: 'assets/img/Angular.png'
+    }
+  };
 
   constructor(private http: HttpClient) {}
 
@@ -47,14 +53,21 @@ export class ProdutoComponent implements OnInit {
   }
 
   buscarProdutoPorCodigo() {
+    if (!this.codigo) {
+      this.showPopupErro("Código não pode ser nulo");
+      return;
+    }
     const baseUrl = 'http://localhost:8080'; 
     this.http.get(`${baseUrl}/produtos/${this.codigo}`).subscribe(
       (response: any) => {
         this.produto = response || null;
+        this.buscaRealizada = true;
       },
       (error: any) => {
         console.error(error);
         this.produto = null;
+        this.buscaRealizada = true;
+        this.showPopupErro("Código Inválido");
       }
     );
   }
@@ -66,6 +79,12 @@ export class ProdutoComponent implements OnInit {
       unidadeDeMedida: this.unidadeDeMedida || null,
       vencimento: this.vencimento || null,
     };
+
+    if(!this.descricao && !this.unidadeDeMedida && !this.vencimento)
+        {
+          this.showPopupErro("Insira pelo menos uma informação");
+            return; 
+        }
   
     this.http.post<Produto>(`${baseUrl}/produtos`, data).subscribe(
       (response: Produto) => {
@@ -73,19 +92,19 @@ export class ProdutoComponent implements OnInit {
         this.descricao = '';
         this.unidadeDeMedida = '';
         this.vencimento = '';
-        this.showPopup("Deu boa meu bruxo");
+        this.showPopup("Produto cadastrado com sucesso");
         this.listarProdutos();
       },
       (error: any) => {
-        this.showPopupErro("Não deu boa meu bruxo");
+        this.showPopupErro("Não foi possível cadastrar o produto");
         console.error('Erro na solicitação:', error);
       }
     );
   }
 
   atualizarProduto() {
-    const baseUrl = 'http://localhost:8080'; // Substitua pelo URL real da sua API
-    const codigo = this.codigoAtualizar; // Use o código do produto do componente
+    const baseUrl = 'http://localhost:8080'; 
+    const codigo = this.codigoAtualizar; 
   
     const data = {
       descricao: this.descricaoAtualizar || null,
@@ -98,11 +117,11 @@ export class ProdutoComponent implements OnInit {
         this.descricaoAtualizar = '';
         this.unidadeDeMedidaAtualizar = '';
         this.vencimentoAtualizar= '';
-        this.showPopup("Item atualizado com sucesso");
+        this.showPopup("Produto atualizado com sucesso");
         this.listarProdutos();
       },
       (error: any) => {
-        this.showPopupErro("Não foi possível atualizar o item");
+        this.showPopupErro("Não foi possível atualizar o Produto");
         console.error('Erro na solicitação:', error);
       }
     );
@@ -113,57 +132,23 @@ export class ProdutoComponent implements OnInit {
     const baseUrl = 'http://localhost:8080'; // Substitua pelo URL real da sua API
     const codigo = this.codigoExcluir; // Use o código do produto do componente
 
+    if(!this.codigoExcluir)
+    {
+      this.showPopupErro('Informe um código para prosseguir');
+    }
+
     fetch(`${baseUrl}/produtos/${codigo}`, {
       method: 'DELETE'
     })
       .then(response => {
         if (response.status === 200) {
-          this.showPopup('Item excluído com sucesso.');
+          this.showPopup('Produto excluído com sucesso.');
          this.listarProdutos();
         } else if (response.status === 404) {
-          this.showPopupErro('Item não encontrado');
+          this.showPopupErro('Código inválido');
         }
       });
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   showPopup(message: string) {
@@ -194,11 +179,15 @@ export class ProdutoComponent implements OnInit {
 
   hidePopup() {
     const popup = document.getElementById('popup');
+    const popupErro = document.getElementById('popupErro');
     if (popup) {
       popup.style.display = 'none';
     }
+    if(popupErro)
+    {
+      popupErro.style.display = 'none';
+    }
   }
-  
  }
   
 

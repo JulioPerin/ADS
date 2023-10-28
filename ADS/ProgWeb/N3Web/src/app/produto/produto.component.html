@@ -1,10 +1,8 @@
-<div class="ts-title">
-  <img class ="img-class" src="/ProgWeb/N3Web/src/assets/img/Angular.png">
-  <h2>Versão Angular</h2>
-</div>
+<img [src]="item.user.picture" onError="this.src = 'assets/img/Angular.png'" class="img-class">
+
 
 <div class="container">
-    <h1>Listagem de produtos</h1>
+    <h1>Listagem de Produtos</h1>
   <ul class="produto-list">
     <li *ngFor="let produto of produtos">
       <div id="produto-detalhes">
@@ -20,8 +18,8 @@
       <button type="submit">Buscar</button>
     </form>
     <div id="produto-detalhes">
-      <p *ngIf="produto">Código: {{ produto.codigoProduto }}, Descrição: {{ produto.descricao }}, Unidade de Medida: {{ produto.unidadeDeMedida }}, Vencimento: {{ produto.vencimento }}</p>
-      <p *ngIf="produto === null">Produto não encontrado.</p>
+      <p *ngIf="buscaRealizada && produto">Código: {{ produto.codigoProduto }}, Descrição: {{ produto.descricao }}, Unidade de Medida: {{ produto.unidadeDeMedida }}, Vencimento: {{ produto.vencimento }}</p>
+    <p *ngIf="buscaRealizada && produto === null">Produto não encontrado.</p>
     </div>
   </div>
 
@@ -29,15 +27,15 @@
     <h1>Cadastrar Produto</h1>
     <form (ngSubmit)="cadastrarProduto()">
       <div class="form-group">
-        <label for="descricao">Descrição:</label>
-        <input type="text" id="descricao" name="descricao" [(ngModel)]="descricao" required>
+       
+        <input type="text" id="descricao" name="descricao" [(ngModel)]="descricao" required placeholder="Descrição">
       </div>
       <div class="form-group">
-        <label for="unidadeDeMedida">Unidade de Medida:</label>
-        <input type="text" id="unidadeDeMedida" name="unidadeDeMedida" [(ngModel)]="unidadeDeMedida" required>
+        
+        <input type="text" id="unidadeDeMedida" name="unidadeDeMedida" [(ngModel)]="unidadeDeMedida" required placeholder="Unidade de Medida">
       </div>
       <div class="form-group">
-        <label for="vencimento">Vencimento:</label>
+       
         <input type="date" id="vencimento" name="vencimento" [(ngModel)]="vencimento" required>
       </div>
       <button type="submit">Cadastrar</button>
@@ -49,19 +47,15 @@
     <h1>Atualizar Produto</h1>
     <form (ngSubmit)="atualizarProduto()">
       <div class="form-group">
-        <label for="atualizarCodigo">Código do Produto a Atualizar:</label>
-        <input type="text" id="atualizarCodigo" name="atualizarCodigo" [(ngModel)]="codigoAtualizar" required>
+        <input type="text" id="atualizarCodigo" name="atualizarCodigo" [(ngModel)]="codigoAtualizar" required placeholder="Código do Produto a Atualizar">
       </div>
       <div class="form-group">
-        <label for="atualizarDescricao">Nova Descrição:</label>
-        <input type="text" id="atualizarDescricao" name="atualizarDescricao" [(ngModel)]="descricaoAtualizar">
+        <input type="text" id="atualizarDescricao" name="atualizarDescricao" [(ngModel)]="descricaoAtualizar" placeholder="Nova Descrição">
       </div>
       <div class="form-group">
-        <label for="atualizarUnidadeDeMedida">Nova Unidade de Medida:</label>
-        <input type="text" id="atualizarUnidadeDeMedida" name="atualizarUnidadeDeMedida" [(ngModel)]="unidadeDeMedidaAtualizar">
+        <input type="text" id="atualizarUnidadeDeMedida" name="atualizarUnidadeDeMedida" [(ngModel)]="unidadeDeMedidaAtualizar" placeholder="Nova Unidade de Medida">
       </div>
       <div class="form-group">
-        <label for="atualizarVencimento">Novo Vencimento:</label>
         <input type="date" id="atualizarVencimento" name="atualizarVencimento" [(ngModel)]="vencimentoAtualizar">
       </div>
       <button type="submit">Atualizar</button>
@@ -73,8 +67,7 @@
     <h1>Excluir Produto</h1>
     <form (ngSubmit)="excluirProduto()">
       <div class="form-group">
-        <label for="excluirCodigo">Código do Produto a Excluir:</label>
-        <input type="text" id="excluirCodigo" name="excluirCodigo" [(ngModel)]="codigoExcluir" required>
+        <input type="text" id="excluirCodigo" name="excluirCodigo" [(ngModel)]="codigoExcluir" required placeholder="Código do Produto a Excluir">
       </div>
       <button type="submit">Excluir</button>
     </form>
