@@ -118,6 +118,7 @@ p{
 }
 
 .img-class {
+    float: left;
     margin-right: 10px;
     margin-bottom: 5px;
     width: 50px; /* Defina a largura desejada, por exemplo, 200 pixels */
