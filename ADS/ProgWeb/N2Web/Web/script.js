@@ -27,6 +27,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // Função para buscar um produto por código
     function buscarProdutoPorCodigo(codigo) {
+        if (!codigo) {
+            showPopupErro("Código não pode ser nulo");
+            return; // Sai do método se o código for nulo
+          }
         fetch(`${baseUrl}/produtos/${codigo}`)
             .then(response => {
                 if (response.status === 200) {
@@ -70,6 +74,12 @@ document.addEventListener("DOMContentLoaded", async function () {
         const descricao = document.getElementById('descricao').value || null;
         const unidadeDeMedida = document.getElementById('unidadeDeMedida').value || null;
         const vencimento = document.getElementById('vencimento').value || null;
+
+        if(!descricao && !unidadeDeMedida && !vencimento)
+        {
+            showPopupErro("Insira pelo menos uma informação");
+            return; 
+        }
 
         fetch(`${baseUrl}/produtos`, {
             method: 'POST',
@@ -135,7 +145,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                     showPopupErro('Codigo inválido');
                 }
                 else {
-                    showPopupErro("Não foi possível atualizar o item");
+                    showPopupErro("Não foi possível atualizar o produto");
                 }
             });
     });
@@ -146,19 +156,23 @@ document.addEventListener("DOMContentLoaded", async function () {
         e.preventDefault();
         const codigo = document.getElementById('excluirCodigo').value;
 
+        console.log(codigo);
+
         fetch(`${baseUrl}/produtos/${codigo}`, {
             method: 'DELETE'
         })
             .then(response => {
                 if (response.status === 200) {
-                    showPopup('Item excluído com sucesso.');
+                    showPopup('Produto excluído com sucesso.');
                     setTimeout(() => {
                         window.location.reload();
                     }, 3000);
                 }
                 if (response.status === 404) {
-                    // Exemplo de uso para exibir o pop-up ao excluir um item
-                    showPopupErro('Item não encontrado');
+                    showPopupErro('Produto não encontrado');
+                }
+                if (response.status === 405) {
+                    showPopupErro('Informe um código para prosseguir');
                 }
             });
     });

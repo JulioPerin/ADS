@@ -1,0 +1,84 @@
+<img [src]="item.user.picture" onError="this.src = 'assets/img/Angular.png'" class="img-class">
+
+
+<div class="container">
+    <h1>Listagem de Produtos</h1>
+  <ul class="produto-list">
+    <li *ngFor="let produto of produtos">
+      <div id="produto-detalhes">
+        <p *ngIf="produto">Código: {{ produto.codigoProduto }}, Descrição: {{ produto.descricao }}, Unidade de Medida: {{ produto.unidadeDeMedida }}, Vencimento: {{ produto.vencimento }}</p>
+      </div>
+  </ul>
+</div>
+
+<div class="container">
+    <h1>Buscar Produto por Código</h1>
+    <form (ngSubmit)="buscarProdutoPorCodigo()">
+      <input type="text" [(ngModel)]="codigo" name="codigo" placeholder="Código do Produto">
+      <button type="submit">Buscar</button>
+    </form>
+    <div id="produto-detalhes">
+      <p *ngIf="buscaRealizada && produto">Código: {{ produto.codigoProduto }}, Descrição: {{ produto.descricao }}, Unidade de Medida: {{ produto.unidadeDeMedida }}, Vencimento: {{ produto.vencimento }}</p>
+    <p *ngIf="buscaRealizada && produto === null">Produto não encontrado.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>Cadastrar Produto</h1>
+    <form (ngSubmit)="cadastrarProduto()">
+      <div class="form-group">
+       
+        <input type="text" id="descricao" name="descricao" [(ngModel)]="descricao" required placeholder="Descrição">
+      </div>
+      <div class="form-group">
+        
+        <input type="text" id="unidadeDeMedida" name="unidadeDeMedida" [(ngModel)]="unidadeDeMedida" required placeholder="Unidade de Medida">
+      </div>
+      <div class="form-group">
+       
+        <input type="date" id="vencimento" name="vencimento" [(ngModel)]="vencimento" required>
+      </div>
+      <button type="submit">Cadastrar</button>
+      <div class="mensagem-sucesso" *ngIf="mensagemSucesso">{{ mensagemSucesso }}</div>
+    </form>
+  </div>
+  
+  <div class="container">
+    <h1>Atualizar Produto</h1>
+    <form (ngSubmit)="atualizarProduto()">
+      <div class="form-group">
+        <input type="text" id="atualizarCodigo" name="atualizarCodigo" [(ngModel)]="codigoAtualizar" required placeholder="Código do Produto a Atualizar">
+      </div>
+      <div class="form-group">
+        <input type="text" id="atualizarDescricao" name="atualizarDescricao" [(ngModel)]="descricaoAtualizar" placeholder="Nova Descrição">
+      </div>
+      <div class="form-group">
+        <input type="text" id="atualizarUnidadeDeMedida" name="atualizarUnidadeDeMedida" [(ngModel)]="unidadeDeMedidaAtualizar" placeholder="Nova Unidade de Medida">
+      </div>
+      <div class="form-group">
+        <input type="date" id="atualizarVencimento" name="atualizarVencimento" [(ngModel)]="vencimentoAtualizar">
+      </div>
+      <button type="submit">Atualizar</button>
+    </form>
+  </div>
+
+
+  <div class="container">
+    <h1>Excluir Produto</h1>
+    <form (ngSubmit)="excluirProduto()">
+      <div class="form-group">
+        <input type="text" id="excluirCodigo" name="excluirCodigo" [(ngModel)]="codigoExcluir" required placeholder="Código do Produto a Excluir">
+      </div>
+      <button type="submit">Excluir</button>
+    </form>
+  </div>
+
+
+  <div id="popup" class="popup">
+    <p id="popup-message"></p>
+</div>
+
+<div id="popupErro" class="popupErro">
+  <p id="popup-messageErro"></p>
+</div>
+
